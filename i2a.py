@@ -19,13 +19,8 @@ def image_to_ascii(img: Image) -> str:
 
     result = []
 
-    # TODO more pythonic
     for row in array:
-        result_row = []
-
-        for pixel in row:
-            saturation = sum(pixel)
-            result_row.append(char_for_saturation(saturation))
+        result_row = [char_for_saturation(sum(pixel)) for pixel in row]
 
         result.append(''.join(result_row))
 
